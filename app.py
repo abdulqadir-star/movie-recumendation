@@ -27,9 +27,9 @@ st.set_page_config(page_title="Movie Recommender", page_icon="🎬")
 movies = pickle.load(open("movies.pkl", "rb"))
 # similarity = pickle.load(open("similarity.pkl", "rb"))
 similarity = pickle.load(open("similarity.pkl", "rb"), encoding="latin1")
-with gzip.open("similarity.pkl.gz", "wb") as f:
-    pickle.dump(similarity, f)
-    similarity = pickle.load(f)
+# with gzip.open("similarity.pkl.gz", "wb") as f:
+#     pickle.dump(similarity, f)
+#     similarity = pickle.load(f)
 # Simple CSS to change only the overall screen background
 st.markdown("""
 <style>
