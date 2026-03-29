@@ -2,6 +2,8 @@ import streamlit as st
 import pickle
 import pandas as pd
 import gzip
+import gdown
+import os
 
 st.markdown(
     """
@@ -25,6 +27,16 @@ st.set_page_config(page_title="Movie Recommender", page_icon="🎬")
 
 # Load data
 movies = pickle.load(open("movies.pkl", "rb"))
+
+file_id = "https://drive.google.com/file/d/1vE367IR4oNQcXbll-VKHgzU2iI9ZMLbf/view?usp=drive_link"
+url = f"https://drive.google.com/uc?id={https://drive.google.com/file/d/1vE367IR4oNQcXbll-VKHgzU2iI9ZMLbf/view?usp=drive_link}"
+
+if not os.path.exists("similarity.pkl"):
+    gdown.download(url, "similarity.pkl", quiet=False)
+
+with open("similarity.pkl", "rb") as f:
+    similarity = pickle.load(f)
+    
 # similarity = pickle.load(open("similarity.pkl", "rb"))
 similarity = pickle.load(open("similarity.pkl", "rb"), encoding="latin1")
 # with gzip.open("similarity.pkl.gz", "wb") as f:
